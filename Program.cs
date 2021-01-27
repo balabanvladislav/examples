@@ -8,7 +8,6 @@ namespace ConsoleApplication2
         {
             int number = pow;
             pow *= number;
-            Console.WriteLine($"{pow}, {contor - 1} , {number}");
             return Do(pow,  contor - 1, number);
         }
         public static int Do(int pow, int contor, int number)
@@ -16,7 +15,6 @@ namespace ConsoleApplication2
             if (contor <= 1) return pow;
             pow *= number;
             Console.WriteLine(pow);
-            Console.WriteLine($"{pow}, {contor - 1} , {number}");
             return Do(pow, contor - 1, number);
         }
     }
@@ -26,8 +24,8 @@ namespace ConsoleApplication2
         public static void Main(string[] args)
         {
             int baza = 2;
-            int exponent = 2;
-            Console.WriteLine(Power.Do(baza, exponent));
+            int exponent = 6;
+            Console.WriteLine(Power.Do(baza, exponent)); // 64
             
         }
     }
