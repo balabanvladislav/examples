@@ -29,8 +29,6 @@ namespace ConsoleApplication2
             int exponent = 2;
             Console.WriteLine(Power.Do(baza, exponent));
             
-
-
         }
     }
 }
