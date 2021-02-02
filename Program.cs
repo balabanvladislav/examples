@@ -1,32 +1,59 @@
 ﻿using System;
+using System.Linq;
+using System.Security.Cryptography;
 
-namespace ConsoleApplication2
+namespace ConsoleApp2
 {
-    class Power
+    class Program
     {
-        public static int Do(int pow, int contor)
+        static void Main(string[] args)
         {
-            int number = pow;
-            pow *= number;
-            return Do(pow,  contor - 1, number);
+            Car audi = new Car();
+            audi["marca"] = "Audi";
+            audi["anul"] = "2001";
+            audi["kilometraj"] = "100000";
+            Console.WriteLine($"{audi["marca"]}, anul {audi["anul"]}, {audi["kilometraj"]} km.");
         }
-        public static int Do(int pow, int contor, int number)
-        {
-            if (contor <= 1) return pow;
-            pow *= number;
-            Console.WriteLine(pow);
-            return Do(pow, contor - 1, number);
-        }
-    }
 
-    internal class Program
-    {
-        public static void Main(string[] args)
+        class Car
         {
-            int baza = 2;
-            int exponent = 6;
-            Console.WriteLine(Power.Do(baza, exponent)); // 64
-            
+            private string marca;
+            private string anul;
+            private string kilometraj;
+
+            public string this[string val]
+            {
+                set
+                {
+                    switch (val)
+                    {
+                        case "marca":
+                            marca = value;
+                            break;
+                        case "anul":
+                            anul = value;
+                            break;
+                        case "kilometraj":
+                            kilometraj = value;
+                            break;
+                    }
+                }
+                get { 
+                    switch (val)
+                    {
+                        case "marca":
+                            return marca;
+                            break;
+                        case "anul":
+                            return anul;
+                            break;
+                        case "kilometraj":
+                            return kilometraj;
+                            break;
+                        default:
+                            return null;
+                    } }
+            }
         }
     }
 }
